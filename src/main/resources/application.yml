@@ -1,0 +1,16 @@
+server:
+  port: 5555
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/telegramusers
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+telegram-bot:
+  botUserName: kolodkintest_bot
+  botToken: 5778617796:AAHGEorxi7MwrQCv9F95fGeM0G_3O8XK5E0
+  webHookPath: https://ccc1-85-93-49-185.eu.ngrok.io
+
+
