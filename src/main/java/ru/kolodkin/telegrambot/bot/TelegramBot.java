@@ -1,4 +1,4 @@
-package ru.kolodkin.telegrambot.model;
+package ru.kolodkin.telegrambot.bot;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -9,6 +9,7 @@ import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.updates.SetWebhook;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.starter.SpringWebhookBot;
+import ru.kolodkin.telegrambot.bot.api.TelegramFacade;
 
 @Getter
 @Setter
@@ -31,6 +32,10 @@ public class TelegramBot extends SpringWebhookBot {
 
     @Override
     public BotApiMethod<?> onWebhookUpdateReceived(Update update) {
+        if (update == null) {
+            throw new RuntimeException();
+        }
+
         return telegramFacade.handleUpdate(update);
     }
 }

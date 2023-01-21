@@ -1,4 +1,4 @@
-package ru.kolodkin.telegrambot.config;
+package ru.kolodkin.telegrambot.config.bot;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @ConfigurationProperties(prefix = "telegram-bot")
-public class TelegramBotConfig {
+public class WrapperBotConfig {
     String botUserName;
     String botToken;
     String webHookPath;
