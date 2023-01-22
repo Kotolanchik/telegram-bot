@@ -5,6 +5,7 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.objects.Message;
+import ru.kolodkin.telegrambot.domain.RedmineState;
 import ru.kolodkin.telegrambot.domain.User;
 
 import static lombok.AccessLevel.PRIVATE;
@@ -13,7 +14,7 @@ import static lombok.AccessLevel.PRIVATE;
 @RequiredArgsConstructor
 @FieldDefaults(level = PRIVATE, makeFinal = true)
 public class UserService {
-    public BotApiMethod<?> startCreateUser(final User user, final Message message) {
+    public BotApiMethod<?> startCreateUser(final RedmineState redmineState, final Message message) {
         return null;
     }
 }
