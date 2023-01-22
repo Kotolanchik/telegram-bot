@@ -7,13 +7,16 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import static lombok.AccessLevel.PRIVATE;
+
 @Getter
 @Setter
 @Component
-@FieldDefaults(level = AccessLevel.PRIVATE)
+@FieldDefaults(level = PRIVATE)
 @ConfigurationProperties(prefix = "telegram-bot")
 public class WrapperBotConfig {
-    String botUserName;
-    String botToken;
-    String webHookPath;
+    String name;
+    String token;
+    String webhook;
+    String url;
 }

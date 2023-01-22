@@ -1,7 +1,8 @@
 package ru.kolodkin.telegrambot.bot.api;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -11,15 +12,16 @@ import ru.kolodkin.telegrambot.bot.handler.MessageHandler;
 
 import static lombok.AccessLevel.PRIVATE;
 
+@Slf4j
 @Component
-@AllArgsConstructor
+@RequiredArgsConstructor
 @FieldDefaults(level = PRIVATE, makeFinal = true)
 public class TelegramFacade {
     CallbackQueryHandler callbackQueryHandler;
     EditedMessageHandler editedMessageHandler;
     MessageHandler messageHandler;
 
-    public BotApiMethod<?> handleUpdate(Update update) {
+    public BotApiMethod<?> handleUpdate(final Update update) {
         if (update.hasCallbackQuery()) {
             return callbackQueryHandler.process(update.getCallbackQuery());
         }
@@ -30,7 +32,6 @@ public class TelegramFacade {
 
         if (update.hasMessage()) {
             return messageHandler.process(update.getMessage());
-
         }
 
         throw new RuntimeException();

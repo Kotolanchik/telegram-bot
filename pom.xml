@@ -14,9 +14,15 @@
 	<name>telegram-bot</name>
 	<description>telegram bot</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>19</java.version>
+		<com.taskadapter.version>4.0.0.rc4</com.taskadapter.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>com.taskadapter</groupId>
+			<artifactId>redmine-java-api</artifactId>
+			<version>${com.taskadapter.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>

@@ -9,8 +9,12 @@ spring:
     driver-class-name: org.postgresql.Driver
 
 telegram-bot:
-  botUserName: <login>
-  botToken: <token>
-  webHookPath: <hook>
+  name: <login>
+  token: <token>
+  webhook: https://0159-178-44-58-83.eu.ngrok.io
+  url: ${url:https://api.telegram.org}
 
-
+redmine:
+  api:
+    uri: ${uri:http://localhost:8080}
+    key: ${key:b4d446bae843557fa11cdc62c65a390411a5d35f}

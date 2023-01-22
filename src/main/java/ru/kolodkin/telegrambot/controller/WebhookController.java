@@ -1,6 +1,7 @@
 package ru.kolodkin.telegrambot.controller;
 
 import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,13 +12,10 @@ import ru.kolodkin.telegrambot.bot.TelegramBot;
 
 @RestController
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@RequiredArgsConstructor
 public class WebhookController {
 
     final TelegramBot telegramBot;
-
-    public WebhookController(TelegramBot telegramBot) {
-        this.telegramBot = telegramBot;
-    }
 
     @PostMapping("/")
     public BotApiMethod<?> onUpdateReceived(@RequestBody Update update) {

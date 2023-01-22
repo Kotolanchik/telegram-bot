@@ -1,18 +1,20 @@
-package ru.kolodkin.telegrambot.bot.handler;
+package ru.kolodkin.telegrambot.service.redmine;
 
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.stereotype.Component;
+import lombok.val;
+import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.objects.Message;
+import ru.kolodkin.telegrambot.domain.User;
 
 import static lombok.AccessLevel.PRIVATE;
 
-@Component
+@Service
 @RequiredArgsConstructor
 @FieldDefaults(level = PRIVATE, makeFinal = true)
-public class EditedMessageHandler implements HandlerProcess<Message> {
-    public BotApiMethod<?> process(final Message message) {
+public class IssueService {
+    public BotApiMethod<?> startCreateIssue(final User user, final Message message) {
         return null;
     }
 }

@@ -20,16 +20,16 @@ public class BotConfig {
     @Bean
     public SetWebhook setWebhookInstance() {
         return SetWebhook.builder()
-                .url(wrapperBotConfig.getWebHookPath())
+                .url(wrapperBotConfig.getWebhook())
                 .build();
     }
 
     @Bean
     public TelegramBot getWebhookBot(SetWebhook webhook, TelegramFacade telegramFacade) {
         TelegramBot telegramBot = new TelegramBot(telegramFacade, webhook);
-        telegramBot.setBotPath(wrapperBotConfig.getWebHookPath());
-        telegramBot.setBotToken(wrapperBotConfig.getBotToken());
-        telegramBot.setBotUsername(wrapperBotConfig.getBotUserName());
+        telegramBot.setBotPath(wrapperBotConfig.getWebhook());
+        telegramBot.setBotToken(wrapperBotConfig.getToken());
+        telegramBot.setBotUsername(wrapperBotConfig.getName());
         return telegramBot;
     }
 }
